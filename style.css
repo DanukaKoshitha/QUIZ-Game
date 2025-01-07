@@ -1,0 +1,39 @@
+.header{
+    background-color: #6D214F;
+    color: #55E6C1;
+    text-align: center;
+    width: 80%;
+    margin-left: 10%;
+}
+
+#line1{
+    padding: 40px;
+    font-weight: 800;
+    font-size: xx-large;
+}
+
+body{
+    margin-top: 0;
+    background-color:#182C61 ;
+}
+
+img{
+    width: 70%;
+    margin-left: 15%;
+    padding-top: 6%;
+    border-top-left-radius: 20%;
+    border-bottom-right-radius: 20%;
+}
+
+.btn{
+    margin-left: 50%;
+}
+
+#button{
+    background-color: black;
+    color: crimson;
+    border-color: black;
+    padding: 20px;
+    margin: 20px;
+    border-radius: initial;
+}
