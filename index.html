@@ -1,35 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="header">
-        <p id="line1">QUIZ GAME</p>
+      <p id="line1">QUIZ GAME</p>
     </div>
 
     <table>
-        <tr>
-            <td>
-                <div class="img">
-                    <img src="img/ai.jpg" alt="">
-                </div>
-            </td>
-            <td>
-                
-                <div class="btn">
-                    <input type="button" value="Start Game" id="button"><br>
-                    <input type="button" value="High Scores" id="button"><br>
-                    <input type="button" value="Setting" id="button">
-                </div>
-            </td>
-        </tr>
+      <tr>
+        <td>
+          <div class="img">
+            <img src="img/ai.jpg" alt="" />
+          </div>
+        </td>
+        <td>
+          <div class="btn">
+            <input type="button" value="Start Game" id="button" onclick="window.location.href ='http://127.0.0.1:5500/startGame.html'"/><br />
+            <input type="button" value="High Scores" id="button" /><br />
+            <input type="button" value="Setting" id="button" />
+          </div>
+        </td>
+      </tr>
     </table>
-
-    <script src="main.js"></script>
-</body>
+  </body>
 </html>
