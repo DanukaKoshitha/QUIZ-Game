@@ -1,53 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body  style="background-color: #ccae62;">
-    
-    <div class="container" >
-        <div class="inner" style="background-color: #d1ccc0; height: 80vh;width: 150vh;margin-left: 14%;margin-top: 5%;">
-            <div class="top" style="display: flex;width: 100%;height: 70px;background-color: #84817a;">
-                <input type="text" id="timer" style="width: 400px;margin: 10px;font-weight: bold; text-align: center;" disabled> 
-                <input type="text" id="Q-number" style="width: 400px;margin: 10px;font-weight: bold;text-align: center;" disabled>
-                <input type="button" value="Start" id="btnStart" onclick="start()" style="width: 285px; margin: 10px;background-color: blue;font-size: 30px;font-weight: 900;border: none;">
-            </div>
-
-            <hr>
-
-            <div class="question">
-                <textArea disabled style="width: 96%;height: 250px;margin: 15px;"></textArea>
-            </div>
-
-            <div class="q-answer">
-                <form>
-                    <ul style="list-style: none;">
-                        <li style="margin: 10px;">
-                            <input type="radio" value="Answer" name="answer" id="">Answer 1
-                        </li>
-                        <li style="margin: 10px;">
-                            <input type="radio" value="Answer" name="answer" id="">Answer 2
-                        </li>
-                        <li style="margin: 10px;">
-                            <input type="radio" value="Answer" name="answer" id="">Answer 3
-                        </li>
-                        <li style="margin: 10px;">
-                            <input type="radio" value="Answer" name="answer" id="">Answer 4
-                        </li>
-                    </ul>
-                </form>
-            </div>
-
-            <div class="button" style="display: flex;justify-content: flex-end;margin-right: 24px;">
-                <button style="background-color: rgb(249, 5, 111);padding: 10px;border-radius: 5px;border-color:black ;" onclick="veryfiyNumber('skipped')">Skip</button>&nbsp;
-                <button style="background-color: rgb(5, 249, 33);padding: 10px;border-radius: 5px;border-color: crimson;" onclick="veryfiyNumber('Submit')">Submit</button>
-            </div>
+  </head>
+  <body style="background-color: #ccae62">
+    <div class="container">
+      <div
+        class="inner"
+        style="
+          background-color: #d1ccc0;
+          height: 80vh;
+          width: 150vh;
+          margin-left: 14%;
+          margin-top: 5%;
+        "
+      >
+        <div class="header">
+          <p style="background-color: cadetblue; color: crimson; padding: 10px">
+            Improve Your Knolage
+          </p>
         </div>
-    </div>  
+
+        <div class="choose">
+          
+          <!-- //////////////////  set category dropdown  /////////////// -->
+          <label for="dropdown">Select Category : </label>
+          <select id="dropdown">
+
+          </select>
+
+          <label for="dropdown">Difficulty : </label>
+          <select id="dropdown1">
+
+          </select>
+
+          <input type="text" placeholder="No.Question" style="width: 100px;" id="">
+
+        </div>
+
+        <!-- ///////////////////////////////////////////////////////////////// -->
+         
+        <div
+          class="top"
+          style="
+            display: flex;
+            width: 100%;
+            height: 70px;
+            background-color: #84817a;
+          "
+        >
+          <input
+            type="text"
+            id="timer"
+            style="
+              width: 400px;
+              margin: 10px;
+              font-weight: bold;
+              text-align: center;
+            "
+            disabled
+          />
+          <input
+            type="text"
+            id="Q-number"
+            style="
+              width: 400px;
+              margin: 10px;
+              font-weight: bold;
+              text-align: center;
+            "
+            disabled
+          />
+          <input
+            type="button"
+            value="Start"
+            id="btnStart"
+            onclick="start()"
+            style="
+              width: 285px;
+              margin: 10px;
+              background-color: blue;
+              font-size: 30px;
+              font-weight: 900;
+              border: none;
+            "
+          />
+        </div>
+
+        <hr />
+
+        <div class="question">
+          <textarea
+            disabled
+            style="width: 96%; height: 250px; margin: 15px"
+            id="text-Area"
+          ></textarea>
+        </div>
+
+        <div class="q-answer">
+          <form>
+            <ul style="list-style: none">
+              <li style="margin: 10px" >
+                <input type="radio" value="1" name="answer" id="" />
+                <span id="answer_1">Answer 1</span>
+              </li>
+              <li style="margin: 10px" >
+                <input type="radio" value="2" name="answer" id="" />
+                <span id="answer_2">Answer 2</span>
+
+              </li>
+              <li style="margin: 10px">
+                <input type="radio" value="3" name="answer" id="" />
+                <span id="answer_3">Answer 3</span>
+
+              </li>
+              <li style="margin: 10px" >
+                <input type="radio" value="4" name="answer" id="" />
+                <span id="answer_4">Answer 4</span>
+
+              </li>
+            </ul>
+          </form>
+        </div>
+
+        <div
+          class="button"
+          style="display: flex; justify-content: flex-end; margin-right: 24px"
+        >
+          <button
+            style="
+              background-color: rgb(249, 5, 111);
+              padding: 10px;
+              border-radius: 5px;
+              border-color: black;
+            "
+            onclick="veryfiyNumber('skipped')"
+          >
+            Skip</button
+          >&nbsp;
+          <button
+            style="
+              background-color: rgb(5, 249, 33);
+              padding: 10px;
+              border-radius: 5px;
+              border-color: crimson;
+            "
+            onclick="veryfiyNumber('Submit')"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
