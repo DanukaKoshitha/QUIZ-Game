@@ -5,49 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="Game.css" />
   </head>
   <body style="background-color: #ccae62">
     <div class="container">
-      <div
-        class="inner"
-        style="
-          background-color: #d1ccc0;
-          height: 80vh;
-          width: 150vh;
-          margin-left: 14%;
-          margin-top: 5%;
-        "
-      >
+      <div class="inner">
+        <input
+          type="button"
+          value="<="
+          style="
+            width: 50px;
+            height: 30px;
+            font-size: 25px;
+            font-weight: 900;
+            background-color: rgb(8, 235, 238);
+            border: none;
+            border-radius: 20px;
+          "
+          onclick="window.location.href ='http://127.0.0.1:5500/index.html'"
+        />
+
         <div class="header">
           <p style="background-color: cadetblue; color: crimson; padding: 10px">
-            Improve Your Knolage
+            Daily Quiz
           </p>
         </div>
 
         <div class="choose">
-          
           <!-- //////////////////  set category dropdown  /////////////// -->
           <label for="dropdown">Select Category : </label>
-          <select id="dropdown">
-
-          </select>
+          <select id="dropdown"></select>
 
           <label for="dropdown">Difficulty : </label>
-          <select id="dropdown1">
+          <select id="dropdown1"></select>
 
-          </select>
-
-          <input type="text" placeholder="No.Question" style="width: 100px;" id="">
-
+          <input type="text" placeholder="No.Question" id="noofQus" />
         </div>
 
         <!-- ///////////////////////////////////////////////////////////////// -->
-         
+
         <div
           class="top"
           style="
             display: flex;
-            width: 100%;
             height: 70px;
             background-color: #84817a;
           "
@@ -95,32 +95,34 @@
         <div class="question">
           <textarea
             disabled
-            style="width: 96%; height: 250px; margin: 15px"
+            style="width: 96%; height: 100px; margin: 15px"
             id="text-Area"
-          ></textarea>
+          >
+          </textarea>
+        </div>
+
+        <div id="loader" style="display: none; text-align: center">
+          <div class="loader"></div>
         </div>
 
         <div class="q-answer">
           <form>
             <ul style="list-style: none">
-              <li style="margin: 10px" >
+              <li style="margin: 10px">
                 <input type="radio" value="1" name="answer" id="" />
                 <span id="answer_1">Answer 1</span>
               </li>
-              <li style="margin: 10px" >
+              <li style="margin: 10px">
                 <input type="radio" value="2" name="answer" id="" />
                 <span id="answer_2">Answer 2</span>
-
               </li>
               <li style="margin: 10px">
                 <input type="radio" value="3" name="answer" id="" />
                 <span id="answer_3">Answer 3</span>
-
               </li>
-              <li style="margin: 10px" >
+              <li style="margin: 10px">
                 <input type="radio" value="4" name="answer" id="" />
                 <span id="answer_4">Answer 4</span>
-
               </li>
             </ul>
           </form>
@@ -137,7 +139,7 @@
               border-radius: 5px;
               border-color: black;
             "
-            onclick="veryfiyNumber('skipped')"
+            id="skip"
           >
             Skip</button
           >&nbsp;
@@ -148,9 +150,9 @@
               border-radius: 5px;
               border-color: crimson;
             "
-            onclick="veryfiyNumber('Submit')"
+            id="next"
           >
-            Submit
+            Next
           </button>
         </div>
       </div>

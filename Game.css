@@ -1,0 +1,227 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(to bottom, #051b32, #eadfe4);
+    margin: 0;
+    padding: 0;
+    color: #333333;
+  }
+  
+  /* Container Styling */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .inner {
+    background: #ffffff;
+    width: 85%;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Header Styling */
+  .header p {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(to right, #0077b6, #00b4d8);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+  }
+  
+  /* Dropdowns and Input Section */
+  .choose {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .choose label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #555555;
+    margin-right: 10px;
+  }
+  
+  .choose select,
+  .choose input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+  }
+  
+  .choose select:hover,
+  .choose input[type="text"]:hover {
+    border-color: #0077b6;
+    background-color: #e8f7ff;
+  }
+  
+  /* Timer, Question Number, and Start Button */
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center; 
+    background: #e9ecef;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 20px
+  }
+  
+  .top input {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    background: none;
+    color: #333333;
+  }
+  
+  .top #btnStart {
+    background: linear-gradient(to right, #28a745, #218838);
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .top #btnStart:hover {
+    background: linear-gradient(to right, #218838, #19692c);
+  }
+  
+  /* Question Textarea */
+  .question textarea {
+    width: calc(100% - 30px);
+    height: 200px;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #cccccc;
+    font-size: 16px;
+    resize: none;
+    background: #f4f4f9;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .question textarea:hover {
+    border-color: #0077b6;
+  }
+  
+  /* Answer List Styling */
+  .q-answer ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .q-answer li {
+    margin: 15px 0;
+    font-size: 18px;
+    color: #444444;
+    display: flex;
+    align-items: center;
+  }
+  
+  .q-answer input[type="radio"] {
+    margin-right: 15px;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .q-answer span {
+    font-size: 16px;
+    color: #555555;
+    cursor: pointer;
+  }
+  
+  /* Buttons Styling */
+  .button {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .button button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .button button#skip {
+    background: linear-gradient(to right, #e63946, #d62828);
+  }
+  
+  .button button#skip:hover {
+    background: linear-gradient(to right, #d62828, #9b2226);
+  }
+  
+  .button button#next {
+    background: linear-gradient(to right, #02c39a, #028090);
+  }
+  
+  .button button#next:hover {
+    background: linear-gradient(to right, #028090, #014d4e);
+  }
+
+  .loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .inner {
+      width: 90%;
+    }
+  
+    .choose {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .top {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  
+    .button {
+      justify-content: center;
+    }
+  }
+  
