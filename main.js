@@ -118,6 +118,7 @@ const displayNextQuestion = () => {
 
   nextQuestionIndex++;
 };
+
 const veryfiyNumber = (action = "answered") => {
   if (qNumber < NoOfQuestions) {
     qNumber++;
@@ -125,6 +126,9 @@ const veryfiyNumber = (action = "answered") => {
   }
 
   clearInterval(interval);
+
+  const currentGameResults =
+    JSON.parse(localStorage.getItem("currentGameResults")) || [];
 
   if (action === "answered") {
     const selectedOption = document.querySelector(
@@ -135,29 +139,51 @@ const veryfiyNumber = (action = "answered") => {
       selected_answer = parseInt(selectedOption.value);
       console.log("Selected Answer Index: ", selected_answer);
 
-      // Check if the selected answer is correct
-      const currentQuestion = data[nextQuestionIndex - 1]; // Get the current question data
+      const currentQuestion = data[nextQuestionIndex - 1]; 
       const correctAnswerIndex = getCorrectAnswerIndex(currentQuestion);
 
-      if (selected_answer === correctAnswerIndex + 1) {
-        correctAnswer_count++; // Increment correct answer count
+      const isCorrect = selected_answer === correctAnswerIndex + 1;
+      if (isCorrect) {
+        correctAnswer_count++;
         console.log("Correct Answer! Total: ", correctAnswer_count);
       } else {
         console.log("Wrong Answer!");
       }
+
+      currentGameResults.push({
+        question: currentQuestion.question.text,
+        options: [...currentQuestion.incorrectAnswers, currentQuestion.correctAnswer],
+        correctAnswer: currentQuestion.correctAnswer,
+        selectedAnswer:
+          currentQuestion.incorrectAnswers[selected_answer - 1] ||
+          currentQuestion.correctAnswer,
+        isCorrect,
+      });
     } else {
       console.log("No answer selected. Question skipped.");
+      currentGameResults.push({
+        question: data[nextQuestionIndex - 1].question.text,
+        options: [
+          ...data[nextQuestionIndex - 1].incorrectAnswers,
+          data[nextQuestionIndex - 1].correctAnswer,
+        ],
+        correctAnswer: data[nextQuestionIndex - 1].correctAnswer,
+        selectedAnswer: null,
+        isCorrect: false,
+      });
     }
   }
 
-  // Reset answer selection for the next question
+  localStorage.setItem("currentGameResults", JSON.stringify(currentGameResults));
+
   document.querySelectorAll('input[name="answer"]').forEach((input) => {
     input.checked = false;
   });
 
-  displayNextQuestion(); // Load the next question
-  displayQize(); // Restart the timer
+  displayNextQuestion();
+  displayQize(); 
 };
+
 
 const getCorrectAnswerIndex = (question) => {
   const answers = [...question.incorrectAnswers, question.correctAnswer];
@@ -180,7 +206,18 @@ const endQuiz = () => {
   document.getElementById("answer_2").innerHTML="Answer 2"
   document.getElementById("answer_3").innerHTML="Answer 3"
   document.getElementById("answer_4").innerHTML="Answer 4"
+
+  const currentGameResults = JSON.parse(localStorage.getItem("currentGameResults")) || [];
+
+  const allGameResults = JSON.parse(localStorage.getItem("allGameResults")) || [];
+  allGameResults.push(currentGameResults);
+
+  localStorage.setItem("allGameResults", JSON.stringify(allGameResults));
+
+  localStorage.removeItem("currentGameResults");
+
 };
+
 
 const start = () => {
   sec = 0;
@@ -196,7 +233,7 @@ const start = () => {
 
   const selectCategory = dropdown.value;
   const selectedDefficleText = dropdownDifficle.value;
-  NoOfQuestions = parseInt(document.getElementById("noofQus").value);
+  NoOfQuestions = document.getElementById("noofQus").value;
 
   if (!selectCategory || !selectedDefficleText || !NoOfQuestions) {
     alert("Please make sure all fields are filled!");
